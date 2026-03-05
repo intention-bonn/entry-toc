@@ -2,6 +2,10 @@
     padding: 1rem 1rem 1rem 2.1rem;
 }
 
+.accordion-item-body > ol {
+    padding: 1rem 1rem 1rem 2.1rem;
+}
+
 .accordion-item-body > ul > li {
     list-style-type: circle;
     padding-bottom: 0.25rem;
@@ -9,6 +13,18 @@
 
 .accordion-item-body-content ul {
     padding-left: 1.5rem;
+}
+
+.accordion-item-body-content ol {
+    list-style-type: none;
+}
+
+.accordion-item-body > ol > li {
+    list-style-type: none;
+}
+
+.accordion-item-body > ol > li {
+    padding-bottom: 0.25rem;
 }
 
 .accordion-item-body-content ul li {

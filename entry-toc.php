@@ -6,7 +6,8 @@ return [
     'fieldsToIndex' => [
         [
             'fieldHandle' => 'exampleNeoField', 
-            'fieldTitles' => ['exampleHeading']
+            'fieldTitles' => ['exampleHeading'],
+            'numbering' => false
         ],
         [
             'fieldHandle' => 'exampleMatrixField',
