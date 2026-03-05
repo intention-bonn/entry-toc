@@ -20,7 +20,7 @@
                         </div>
                         {% if fieldObj.className == "benf\\neo\\Field" %}
                             <div class="accordion-item-body">
-                                <ul class="accorion-item-body-content">
+                                <ul class="accordion-item-body-content">
                                     {% for block in indexField.level(1).all() %}
                                         {% set itemTitle = macros.getTitle(block, field) %}
                                         <li>
@@ -31,7 +31,7 @@
                             </div>
                         {% elseif fieldObj.className == "craft\\fields\\Matrix" %}
                             <div class="accordion-item-body">
-                                <ul class="accorion-item-body-content">
+                                <ul class="accordion-item-body-content">
                                     {% for block in indexField.all() %}
                                         {% set itemTitle = macros.getTitle(block, field) %}
                                         <li>

@@ -1,5 +1,5 @@
 .accordion-item-body > ul {
-    padding: 0 1rem 1rem 2.1rem;
+    padding: 1rem 1rem 1rem 2.1rem;
 }
 
 .accordion-item-body > ul > li {
@@ -12,9 +12,8 @@
     max-width: 1000px;
 }
 .accordion-item {
-    background-color: #fff;
+    background-color: #f3f7fc;
     border-radius: 0.5rem;
-    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.25);
     color: #111;
     margin: 1rem 0;
 }
@@ -27,6 +26,10 @@
     min-height: 3.5rem;
     padding: 0.5rem 3rem 0.5rem 1rem;
     position: relative;
+    box-shadow:
+    0 0 0 1px #cdd8e4,
+    0 2px 12px rgba(205, 216, 228, 0.5);
+    border-radius: 0.5rem;
 }
 .accordion-item-header::after {
     color: var(--medium-text-color);
@@ -45,9 +48,5 @@
     transition: max-height 0.2s ease-out;
 }
 .accordion-item-body-content {
-    
-
     line-height: 1.5rem;
-    border-top: 1px solid;
-    border-image: linear-gradient(to right, transparent, #34495e, transparent) 1;
 }
