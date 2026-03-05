@@ -22,20 +22,32 @@
                            <div class="accordion-item-body">
 
                                 {% macro renderBlocks(blocks, field, prefix) %}
-                                    {% if field.numbering %}
+                                    {% set numbering = field.numbering|default(false) %}
+
+                                    {% if numbering %}
                                         <ol class="accordion-item-body-content">
                                     {% else %}
                                         <ul class="accordion-item-body-content">
                                     {% endif %}
 
                                     {% for block in blocks %}
-                                        {% set itemTitle = _self.getTitle(block, field) %}
+                                        {% set itemTitle = block.type.name %}
 
-                                        {% set number = field.numbering ? (prefix ? prefix ~ '.' ~ loop.index : loop.index) : '' %}
+                                        {% set titleFound = false %}
+                                        {% if field.blockTitleFields is defined %}
+                                            {% for f in field.blockTitleFields %}
+                                                {% if not titleFound and block[f] is defined and block[f] %}
+                                                    {% set itemTitle = itemTitle ~ ' (' ~ block[f]|striptags ~ ')' %}
+                                                    {% set titleFound = true %}
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+
+                                        {% set number = numbering ? (prefix ? prefix ~ '.' ~ loop.index : loop.index) : '' %}
 
                                         <li>
                                             <a href="#{{ block.id }}" class="tocitem" id="toc{{ block.id }}">
-                                                {% if field.numbering %}{{ number }}. {% endif %}
+                                                {% if numbering %}{{ number }}. {% endif %}
                                                 {{ itemTitle }}
                                             </a>
 
@@ -46,7 +58,7 @@
 
                                     {% endfor %}
 
-                                    {% if field.numbering %}
+                                    {% if numbering %}
                                         </ol>
                                     {% else %}
                                         </ul>

@@ -7,7 +7,8 @@ return [
         [
             'fieldHandle' => 'exampleNeoField', 
             'fieldTitles' => ['exampleHeading'],
-            'numbering' => false
+            'numbering' => false,
+            'blockTitleFields' => ['exampleBlockField', 'exampleBlockField']
         ],
         [
             'fieldHandle' => 'exampleMatrixField',
