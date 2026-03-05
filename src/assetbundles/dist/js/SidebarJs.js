@@ -25,22 +25,26 @@ function toggleToc(hideAll) {
     })
 }
 
-const accordionItemHeaders = document.querySelectorAll(".accordion-item-header");
+const accordionItemHeaders = document.querySelectorAll(
+  ".accordion-item-header",
+);
 
-accordionItemHeaders.forEach(accordionItemHeader => {
-  accordionItemHeader.addEventListener("click", event => {
-    
-    accordionItemHeader.classList.toggle("active");
-    const accordionItemBody = accordionItemHeader.nextElementSibling;
-    if(accordionItemHeader.classList.contains("active")) {
-      accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+accordionItemHeaders.forEach((header) => {
+  header.addEventListener("click", () => {
+    header.classList.toggle("active");
+    const body = header.nextElementSibling;
+
+    if (header.classList.contains("active")) {
+      const maxHeight = window.innerHeight * 0.8;
+      const contentHeight = body.scrollHeight;
+
+      body.style.maxHeight = Math.min(contentHeight, maxHeight) + "px";
+    } else {
+      body.style.maxHeight = 0;
     }
-    else {
-      accordionItemBody.style.maxHeight = 0;
-    }
-    
   });
 });
+
 
 let tocs = document.querySelectorAll(".toc");
 if (tocs[0].closest(".slideout-container")) {
